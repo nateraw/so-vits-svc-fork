@@ -235,7 +235,7 @@ def load_checkpoint(
             warnings.filterwarnings(
                 "ignore", category=UserWarning, message="TypedStorage is deprecated"
             )
-            checkpoint_dict = torch.load(f, map_location="cpu", weights_only=True)
+            checkpoint_dict = torch.load(f, map_location="cpu")
     iteration = checkpoint_dict["iteration"]
     learning_rate = checkpoint_dict["learning_rate"]
 
