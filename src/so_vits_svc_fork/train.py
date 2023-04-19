@@ -55,7 +55,7 @@ class VCDataModule(pl.LightningDataModule):
             num_workers=min(cpu_count(), self.__hparams.train.get("num_workers", 8)),
             batch_size=self.batch_size,
             collate_fn=self.collate_fn,
-            persistent_workers=True,
+            persistent_workers=self.__hparams.train.get("persistent_workers", True),
         )
 
     def val_dataloader(self):
